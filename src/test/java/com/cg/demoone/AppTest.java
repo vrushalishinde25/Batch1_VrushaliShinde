@@ -1,38 +1,77 @@
 package com.cg.demoone;
 
-import junit.framework.Test;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest extends TestCase
 {
-    /**
+	
+	private static ICalculatorService service;
+    
+	@BeforeAll
+	public static void setup() {
+	    System.out.println("@BeforeAll - executes once before all test methods in this class");
+	    service = new CalculatorServiceImpl();
+	}
+	 
+	@BeforeEach
+	public void init() {
+	    System.out.println("@BeforeEach - executes before each test method in this class");
+	}
+	
+	/**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public AppTest()
     {
-        super( testName );
+        
+    }
+    
+    @Test
+    public void testAddition() {
+    	System.out.println("inside testAddition");
+        assertEquals(10.0, service.addition(7, 3));
+    }
+    
+    @Test
+    public void testSubtraction() {
+    	System.out.println("inside testSubtraction");
+    	assertEquals(-4.0, service.subTraction(7, 3));
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test
+    public void testMultiplication() {
+    	System.out.println("inside testMultiplication");
+    	 assertEquals(21.0, service.mulTiplication(7, 3));
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( false );
+    
+    @Test
+    public void testDivision() {
+    	System.out.println("inside testDivision");
+    	assertEquals(2.4, service.division(7, 3));
+    }
+    
+    
+    @AfterEach
+    public void tearDown() {
+        System.out.println("@AfterEach - executed after each test method.");
+    }
+     
+    @AfterAll
+    public static void done() {
+        System.out.println("@AfterAll - executed after all test methods.");
+        service = null;
     }
 }
