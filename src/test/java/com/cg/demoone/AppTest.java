@@ -45,7 +45,7 @@ public class AppTest extends TestCase
     @Test
     public void testAddition() {
     	System.out.println("inside testAddition");
-    	log.info("inside testAddition");
+    	log.info("inside testAddition zopa");
     	service = new CalculatorServiceImpl();
         assertEquals(10.0, service.addition(7, 3));
     }
