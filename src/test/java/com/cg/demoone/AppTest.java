@@ -64,7 +64,7 @@ public class AppTest extends TestCase
     public void testDivision() {
     	System.out.println("inside testDivision");
     	service = new CalculatorServiceImpl();
-    	assertEquals(2.4, service.division(7, 3));
+    	assertEquals(3.0, service.division(9, 3));
     }
     
     
