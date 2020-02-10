@@ -1,6 +1,7 @@
 package com.cg.demoone;
 
 
+import org.apache.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,6 +16,8 @@ import junit.framework.TestCase;
  */
 public class AppTest extends TestCase
 {
+	
+	static Logger log = Logger.getLogger(AppTest.class.getName());
 	
 	private static ICalculatorService service;
     
@@ -42,6 +45,7 @@ public class AppTest extends TestCase
     @Test
     public void testAddition() {
     	System.out.println("inside testAddition");
+    	log.info("inside testAddition");
     	service = new CalculatorServiceImpl();
         assertEquals(10.0, service.addition(7, 3));
     }
@@ -49,6 +53,7 @@ public class AppTest extends TestCase
     @Test
     public void testSubtraction() {
     	System.out.println("inside testSubtraction");
+    	log.info("inside testSubtraction");
     	service = new CalculatorServiceImpl();
     	assertEquals(-4.0, service.subTraction(7, 3));
     }
@@ -56,13 +61,15 @@ public class AppTest extends TestCase
     @Test
     public void testMultiplication() {
     	System.out.println("inside testMultiplication");
+    	log.info("inside testMultiplication");
     	service = new CalculatorServiceImpl();
-    	 assertEquals(21.0, service.mulTiplication(7, 3));
+    	assertEquals(21.0, service.mulTiplication(7, 3));
     }
     
     @Test
     public void testDivision() {
     	System.out.println("inside testDivision");
+    	log.info("inside testDivision");
     	service = new CalculatorServiceImpl();
     	assertEquals(3.0, service.division(9, 3));
     }
