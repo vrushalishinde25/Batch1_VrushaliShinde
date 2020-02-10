@@ -42,24 +42,28 @@ public class AppTest extends TestCase
     @Test
     public void testAddition() {
     	System.out.println("inside testAddition");
+    	service = new CalculatorServiceImpl();
         assertEquals(10.0, service.addition(7, 3));
     }
     
     @Test
     public void testSubtraction() {
     	System.out.println("inside testSubtraction");
+    	service = new CalculatorServiceImpl();
     	assertEquals(-4.0, service.subTraction(7, 3));
     }
 
     @Test
     public void testMultiplication() {
     	System.out.println("inside testMultiplication");
+    	service = new CalculatorServiceImpl();
     	 assertEquals(21.0, service.mulTiplication(7, 3));
     }
     
     @Test
     public void testDivision() {
     	System.out.println("inside testDivision");
+    	service = new CalculatorServiceImpl();
     	assertEquals(2.4, service.division(7, 3));
     }
     
